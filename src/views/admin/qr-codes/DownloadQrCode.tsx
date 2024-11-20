@@ -442,7 +442,7 @@ const HandleQRBgImageDialog = (props: HandleQRBgImageProps) => {
 	);
 };
 
-function drawQrOnBanner(qrCodeUrl, bannerImgUrl, x, y) {
+function drawQrOnBanner(qrCodeUrl: string, bannerImgUrl: string, x: number, y: number) {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
 

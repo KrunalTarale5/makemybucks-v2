@@ -335,7 +335,7 @@ const AddMenu = () => {
 									multiple
 									fullWidth
 									size='medium'
-									placeholder='Type category to assign...'
+									// placeholder='Type category to assign...'
 									options={
 										(GetAllRestaurantCategoriesApi.data?.data.data === undefined
 											? []

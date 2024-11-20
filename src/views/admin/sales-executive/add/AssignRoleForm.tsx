@@ -19,6 +19,7 @@ import { memo, useContext, useState, useEffect, useRef } from 'react';
 import NavigateButtons from '../NavigateButtons';
 import { useNavigate } from 'react-router-dom';
 import { useSnackbar } from '@components/Snackbar';
+import { Autocomplete, TextField } from '@mui/material';
 
 const intialFormData = (formData: AddSalesExecutiveRequest): AssignRoleFormRequest => ({
 	assign_role: formData.assign_role as Option,
@@ -158,15 +159,7 @@ const SearchableSelect = ({
 										setIsOpen(false);
 										setSearchTerm('');
 									}}
-									style={{
-										padding: '10px',
-										cursor: 'pointer',
-										backgroundColor: value?.value === option.value ? '#f5f5f5' : 'white',
-										color: '#000',
-										':hover': {
-											backgroundColor: '#f5f5f5'
-										}
-									}}
+									className={`option ${value?.value === option.value ? 'selected' : ''}`}
 								>
 									{option.label}
 								</div>
@@ -475,7 +468,7 @@ const AssignRoleForm = () => {
 											onChange={(option) => onChange(fieldName, option)}
 											placeholder={`Select ${fieldProps.label}`}
 											error={formError[fieldName]}
-											label={fieldProps.label}
+											label={typeof fieldProps.label === 'string' ? fieldProps.label : String(fieldProps.label)}
 										/>
 									</div>
 								);

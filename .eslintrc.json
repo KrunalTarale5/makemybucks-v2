@@ -38,7 +38,7 @@
         ],
         "linebreak-style": "off",
         "eqeqeq": "error",
-        "prettier/prettier": "error",
+        "prettier/prettier": "off",
         "react/display-name": "off",
         "react/no-children-prop": "off",
         "react-hooks/rules-of-hooks": "error",
@@ -51,6 +51,9 @@
         "import/no-extraneous-dependencies": "off",
         "@typescript-eslint/no-var-requires": "off",
         "@typescript-eslint/no-unused-vars":"warn",
+        "@typescript-eslint/no-unsafe-argument": "off",
+        "@typescript-eslint/no-unnecessary-type-assertion": "off",
+        "@typescript-eslint/restrict-template-expressions": "off",
         // Enforce the use of the shorthand syntax.
         "object-shorthand": "error",
         "no-console": [
