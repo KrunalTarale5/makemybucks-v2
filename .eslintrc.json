@@ -1,0 +1,90 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:react/recommended",
+        "plugin:import/recommended",
+        "plugin:import/typescript",
+        "plugin:react/jsx-runtime",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:prettier/recommended",
+        "prettier"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "tsconfig.json",
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "react",
+        "react-hooks",
+        "prettier"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "linebreak-style": "off",
+        "eqeqeq": "error",
+        "prettier/prettier": "error",
+        "react/display-name": "off",
+        "react/no-children-prop": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "@typescript-eslint/no-floating-promises": "warn",
+        "react-hooks/exhaustive-deps": "warn",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "import/no-extraneous-dependencies": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/no-unused-vars":"warn",
+        // Enforce the use of the shorthand syntax.
+        "object-shorthand": "error",
+        "no-console": [
+            "warn",
+            {
+                "allow": [
+                    "debug",
+                    "error"
+                ]
+            }
+        ]
+    },
+    "overrides": [
+        {
+            "files": [
+                "*.ts",
+                "*.tsx",
+                "*.js",
+                "*.jsx"
+            ],
+            "rules": {
+                "indent": ["warn", "tab", { "SwitchCase": 1 }]
+            }
+        }
+    ],
+    "settings": {
+        "import/resolver": {
+            "typescript": {}
+        }
+    },
+    "ignorePatterns": [
+        "node_modules",
+        "build",
+        "dist",
+        "public"
+    ]
+}
