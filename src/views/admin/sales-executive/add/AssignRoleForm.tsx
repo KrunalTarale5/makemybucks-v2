@@ -160,6 +160,7 @@ const SearchableSelect = ({
 										setSearchTerm('');
 									}}
 									className={`option ${value?.value === option.value ? 'selected' : ''}`}
+									style={{ padding: '10px 12px' }}
 								>
 									{option.label}
 								</div>
@@ -461,7 +462,7 @@ const AssignRoleForm = () => {
 								const fieldProps = v[1];
 
 								return (
-									<div key={fieldName}>
+									<div key={fieldName} style={{ marginBottom: '16px' }}>
 										<SearchableSelect
 											options={getOptions(fieldName) || []}
 											value={formData[fieldName] as Option}
@@ -469,6 +470,7 @@ const AssignRoleForm = () => {
 											placeholder={`Select ${fieldProps.label}`}
 											error={formError[fieldName]}
 											label={typeof fieldProps.label === 'string' ? fieldProps.label : String(fieldProps.label)}
+											// style={{ width: '100%' }}
 										/>
 									</div>
 								);

@@ -288,6 +288,24 @@ const PayTo = () => {
 	};
 
 	useEffect(() => {
+		if (GetDeepLinkInfoApi.isError) {
+			showAlertDialog({
+				title: 'Restaurant not found',
+				buttons: [
+					{
+						children: 'ok',
+						variant: 'outlined',
+						callback: () => {
+							hideAlertDialog();
+						},
+					},
+				],
+			});
+		}
+	}, [GetDeepLinkInfoApi.isError]);
+
+	useEffect(() => {
+
 		void loadPaymentGateway();
 	}, []);
 

@@ -312,29 +312,35 @@ const AddressDetailsForm = () => {
 
 							return (
 								fieldName === 'local_state' && (
-									<InputField
-										fieldName={fieldName}
-										value={(localAddformData[fieldName] as InputFieldValue) ?? ''}
-										key={fieldName}
-										fieldProps={{
-											...fieldProps,
-											color: 'secondary',
-											fullWidth: true,
-											sx: {
-												gap: 0,
-												'.MuiTypography-subtitle1': {
-													fontFamily: 'Poppins',
-													fontSize: `14px`,
-												},
-											},
-											options: getOptions(fieldName),
-											autoComplete: 'off',
-											error: Boolean(localAddformError[fieldName]),
-											helperText: localAddformError[fieldName],
-										}}
-										fieldType={fieldProps.fieldType}
-										onChange={onLocalAddChange}
-									/>
+									<div>
+										<label style={{ display: 'block', marginBottom: '8px' }}>
+											State <span style={{ color: 'red' }}>*</span>
+										</label>
+										<select
+											value={localAddformData[fieldName] as unknown as string}
+											onChange={(e) => onLocalAddChange(fieldName, e.target.value, 'text')}
+											style={{
+												width: '100%',
+												padding: '10px',
+												borderRadius: '4px',
+												border: '1px solid #ccc',
+												fontFamily: 'Poppins',
+												fontSize: '14px',
+												color: '#333',
+												backgroundColor: 'white',
+												cursor: 'pointer',
+											}}
+										>
+											{getOptions(fieldName)?.sort((a, b) => a.label.localeCompare(b.label)).map(option => (
+												<option key={option.value} value={option.value}>
+													{option.label}
+												</option>
+											))}
+										</select>
+										{localAddformError[fieldName] && (
+											<div style={{ color: 'red', marginTop: '4px' }}>{localAddformError[fieldName]}</div>
+										)}
+									</div>
 								)
 							);
 						})}
@@ -437,47 +443,49 @@ const AddressDetailsForm = () => {
 
 							return (
 								fieldName === 'permanent_state' && (
-									<InputField
-										fieldName={fieldName}
-										value={(permanentAddformData[fieldName] as InputFieldValue) ?? ''}
-										key={fieldName}
-										fieldProps={{
-											...fieldProps,
-											color: 'secondary',
-											fullWidth: true,
-											sx: {
-												gap: 0,
-												'.MuiTypography-subtitle1': {
-													fontFamily: 'Poppins',
-													fontSize: `14px`,
-												},
-											},
-											options: getOptions(fieldName),
-											autoComplete: 'off',
-											error: Boolean(permanentAddFormError[fieldName]),
-											helperText: permanentAddFormError[fieldName],
-										}}
-										fieldType={fieldProps.fieldType}
-										onChange={onPermanentAddChange}
-										addons={
-											fieldName === 'permanent_state' && (
-												<FormControlLabel
-													control={
-														<Checkbox
-															color='primary'
-															size='small'
-															onChange={onSameAsClick}
-														/>
-													}
-													label={
-														<PoppinsTypography variant='subtitle1'>
-															Same as Local Address
-														</PoppinsTypography>
-													}
+									<div>
+										<label style={{ display: 'block', marginBottom: '8px' }}>
+											State <span style={{ color: 'red' }}>*</span>
+										</label>
+										<select
+											value={permanentAddformData[fieldName] as unknown as string}
+											onChange={(e) => onPermanentAddChange(fieldName, e.target.value, 'text')}
+											style={{
+												width: '100%',
+												padding: '10px',
+												borderRadius: '4px',
+												border: '1px solid #ccc',
+												fontFamily: 'Poppins',
+												fontSize: '14px',
+												color: '#333',
+												backgroundColor: 'white',
+												cursor: 'pointer',
+											}}
+										>
+											{getOptions(fieldName)?.sort((a, b) => a.label.localeCompare(b.label)).map(option => (
+												<option key={option.value} value={option.value}>
+													{option.label}
+												</option>
+											))}
+										</select>
+										{permanentAddFormError[fieldName] && (
+											<div style={{ color: 'red', marginTop: '4px' }}>{permanentAddFormError[fieldName]}</div>
+										)}
+										<FormControlLabel
+											control={
+												<Checkbox
+													color='primary'
+													size='small'
+													onChange={onSameAsClick}
 												/>
-											)
-										}
-									/>
+											}
+											label={
+												<PoppinsTypography variant='subtitle1'>
+													Same as Local Address
+												</PoppinsTypography>
+											}
+										/>
+									</div>
 								)
 							);
 						})}
