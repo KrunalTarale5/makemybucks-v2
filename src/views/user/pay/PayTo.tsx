@@ -137,7 +137,7 @@ const PayTo = () => {
 			.then((res) => {
 				const order_id = res.data.order_id;
 				const objectForSending = {
-					key_id: 'rzp_test_bKbGnqnewD4zgf',
+					key_id: 'rzp_live_8H6xVKd0OUsCIw',
 					amount: Number(res.data.amount) * 100,
 					//callback_url: 'http://localhost:3000/payments/error',
 					//callback_url: 'http://localhost:3001/payments/error?order_id=' + `${res.data.order_id}`,
